@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<ui:define name="title">Start Seite</ui:define>
+	
+	<ui:define name="content">
+		<div class="row">
+			<div class="col-xs-3 col-md-3 col-lg-3"
+				style="background-color: #ff6533">
+				<ui:insert name="content-left"></ui:insert>
+				<h3>hier kommt neue Meldungen und infos before einlogin</h3>
+			</div>
+			<div class="col-xs-6 col-lg-6" style="background-color: #dddddd;">
+				<ui:insert name="login">
+					<p> <a href="templates/login.xhtml">login</a> </p>
+					
+				</ui:insert>
+				<ui:insert name="register">
+					
+					<h:form>
+					<h:commandLink value="register" action="templates/register.xhtml"/>
+					</h:form>
+				</ui:insert>
+				<ui:insert name="password_forgot">
+					
+					<h:form>
+					<h:commandLink value="password forgotten" action="templates/password_forgot.xhtml"/>
+					</h:form>
+				</ui:insert>		
+
+			</div>
+			<div class="col-xs-3 col-lg-3" style="background-color: #ee6ee2">
+
+				<h4>Werbungen für andere Schule und aktivitäten</h4>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+
+
+

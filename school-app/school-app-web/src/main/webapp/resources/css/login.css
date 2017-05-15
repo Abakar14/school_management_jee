@@ -1,0 +1,158 @@
+html,body {
+	background: #ffffff;
+	color: #000000;
+	font: normal 12px tahoma, arial, verdana, sans-serif;
+	margin: auto;
+	padding: 0;
+	border: 0 none;
+	overflow: hidden;
+	width: 800px;
+	height: 100%;
+}
+
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 100%;
+}
+#logo {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #33FF66;
+}
+
+#contentwrap {
+ 
+   width: 80%;
+   float: left;
+      
+}
+
+#content {
+    background: #FFFFFF;  
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 200px;
+    
+}
+#logo{
+	margin:10 auto;
+	width: 100%;
+   
+}
+
+#slider{
+	background-color: blue;
+	height: 50%;
+}
+
+#login{
+	
+	margin-top: 5px;
+}
+
+#username {
+	width: 250px;
+	margin: auto;
+}
+
+#usernameLabel {
+	width: 50%;
+	float: left;
+}
+
+
+#usernameInput{
+	width: 50%;
+	float: right;
+	background-color: #B81FEB;
+}
+
+#password{
+	margin: auto;
+	width: 250px;
+}
+
+#passwordLabel{
+	width: 50%;
+	float: left;
+	
+}
+#passwordInput{
+	width: 50%;
+	float: right;
+	background-color: #B81FEB;
+}
+
+#loginButton{
+	width: 20%;	
+	margin-left: 195px;
+	margin-bottom: 5px;
+}
+
+#login-button{
+	width: 100%;
+	margin-left: 125px;
+}
+#leftcolumnwrap {
+    width: 10%;
+    float: left;
+    background-color: #333333;
+     margin-right: 2px;
+   
+}
+
+
+#leftcolumn {
+    background: #33CCFF;
+    
+}
+
+#rightcolumnwrap {
+    width: 10%
+    float: right;
+     margin-left: 2px;
+   
+}
+
+#rightcolumn {
+    background: #33CCFF;    
+   
+}
+
+#footerwrap {
+    width: 100%;
+    height: 70px;
+    float: left;
+    margin: 0 auto;
+    
+}
+
+#footer_left {
+  	width: 30%;
+    background-color: #337766;
+    float: left;
+    height: 100%;
+  
+}
+#footer_center {
+  	width: 50%;
+    background-color: #337766;
+    float: left;
+     height: 100%;
+}
+#footer_right {
+	width: 20%;
+  float: right;
+   background-color: #337766;
+    height: 100%;
+   
+   
+  
+  
+}
+

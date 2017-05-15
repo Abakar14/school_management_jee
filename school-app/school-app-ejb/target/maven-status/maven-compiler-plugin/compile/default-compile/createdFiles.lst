@@ -1,0 +1,15 @@
+de\bytmasoft\school\dao\entities\Communication.class
+de\bytmasoft\school\dao\service\login\LoginServiceLocal.class
+de\bytmasoft\school\dao\utils\QueryParameter.class
+de\bytmasoft\school\dao\entities\Address.class
+de\bytmasoft\school\dao\enums\Kind.class
+de\bytmasoft\school\dao\entities\User.class
+de\bytmasoft\school\dao\enums\Relationship.class
+de\bytmasoft\school\dao\service\BytmasoftServiceRemote.class
+de\bytmasoft\school\dao\enums\CommunicationType.class
+de\bytmasoft\school\dao\service\login\LoginService.class
+de\bytmasoft\school\dao\enums\Gender.class
+de\bytmasoft\school\dao\service\login\LoginServiceRemote.class
+de\bytmasoft\school\dao\service\BytmasoftService.class
+de\bytmasoft\school\dao\service\BytmasoftServiceLocal.class
+de\bytmasoft\school\dao\entities\Communicatation.class

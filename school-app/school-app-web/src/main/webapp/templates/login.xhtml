@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ph="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<ui:define name="title">login page</ui:define>
+
+</h:head>
+<body>
+
+	<ui:composition template="../index.xhtml">
+
+
+		<ui:define name="login">			
+			<h:form id="login">
+			 	<h:inputText  id="username" value="#{user.loginName}" label="Username: "  required="true" />
+			 	<h:message  for="username" style="color:red"/><br />
+				<h:inputSecret id="passwordId" label="Password: " value="#{user.password}" required="true">
+					<f:validateRegex pattern="((?=.*[a-z]).{5,})" />
+				</h:inputSecret>
+				<br />
+				<h:message for="passwordId" style="color:red" />
+				<br />
+				<h:commandButton value="login" action="#{loginAction.checkLogin}" />
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</body>
+
+</html>

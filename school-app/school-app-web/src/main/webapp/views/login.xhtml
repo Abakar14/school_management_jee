@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<!-- verhätnis eine bestimmte browser beindrücken -->
+  <meta http-equiv="X-UA-Compatible" content="IE-edge" /> 
+ <!--  für mobile geraete-->
+   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<!-- <link rel="stylesheet" type="text/css" href="css/login.css" /> -->
+	<!-- my css datein -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+	
+
+</h:head>
+<body>
+
+<h:form>
+		<div id="wrapper">
+
+			<div id="logo">
+				<img src="images/login-logo.png"/>
+			</div>
+			<div id="content">
+				<div id="leftcolumnwrap">
+					<div id="leftcolumn">
+						<p>Hallo hier kommt werbung für die left seite</p>
+					</div>
+
+				</div>
+				<div id="contentwrap">
+					<div id="content">
+
+						<div id="slider">slider</div>
+						<div id="login">
+							<div id="username">
+							 <div id="usernameLabel">Username</div>
+								<div id="usernameInput">
+									<h:inputText value="" label="Username" id="userName"/>
+								</div>
+							</div>
+							<br /> <br />
+							<div id="password">
+								<div id="passwordLabel">password</div>
+								<div id="passwordInput">
+									<input type="password" name="password" />
+								</div>
+
+
+							</div>
+							<br /> <br />
+							<div id="loginButton">
+								<div></div>
+								<div>
+									<input type="submit" value="sign in" id="login-button"
+										onmouseover="this.className='login-button-hover'"
+										onmouseout="this.className='login-button'"></input>
+								</div>
+
+							</div>
+
+
+
+						</div>
+
+
+					</div>
+
+				</div>
+				<div id="rightcolumnwrap">
+					<div id="rightcolumn">
+						<p>Hier kommt info für die rechte seite bei einlogin</p>
+					</div>
+				</div>
+			</div>
+			<div id="footerwrap">
+			
+			
+				<div id="footer_left">						
+					<p>	bytmasoft information system <br/>
+						Telefon: +49 176 760 75 37 <br/>
+				E-Mail: <a href="mailto:abakar61@web.de" style="color: white; font: normal 12px tahoma, arial, verdana, sans-serif;">abakar61@web.de</a>
+					</p>
+					
+					
+
+				</div>
+				<div id="footer_center"> center fsdafdsafasdgfdgfdgdfgdfgdsfgdsfg </div>
+				<div id="footer_right">right sdafdsafadsfa</div>
+
+			</div>
+
+
+		</div>
+
+
+
+	</h:form> 
+	
+	<!--javaScripte am Ende damit die seite schnell laden -->
+	<script type="scripts/jquery-3.1.1.min.js"></script>
+	<script type="scripts/bootstrap.js"></script>
+</body>
+</html>

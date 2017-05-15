@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <description>Parent of my Applications</description>
+  <display-name>school-app-ear</display-name>
+  <module>
+    <web>
+      <web-uri>school-app-web.war</web-uri>
+      <context-root>/school-app-web</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>school-app-ejb.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>
