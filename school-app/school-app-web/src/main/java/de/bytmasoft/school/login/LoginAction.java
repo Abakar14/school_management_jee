@@ -23,6 +23,13 @@ public class LoginAction {
 
 		
 	}
+	
+	
+	public void test(){
+		
+	}
+	
+	
 
 	public String checkLogin(){
 		
