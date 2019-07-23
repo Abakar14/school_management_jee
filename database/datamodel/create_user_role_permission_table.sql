@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS `role` (
   `title` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NULL,
   PRIMARY KEY (`role_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+COMMENT = 'The role table contain all roles of the System (Rolle | funktion)';
 
 SHOW WARNINGS;
 
@@ -45,7 +46,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf32
+COLLATE = utf32_bin
+COMMENT = 'Table of all users in our user management system';
 
 SHOW WARNINGS;
 CREATE UNIQUE INDEX `user_id_UNIQUE` ON `user` (`user_id` ASC);
@@ -63,7 +67,8 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `title` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
   PRIMARY KEY (`permission_id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+COMMENT = 'is used for give a user  permission (Erlaubnis / Berechtigung / Rights )';
 
 SHOW WARNINGS;
 CREATE UNIQUE INDEX `permission_id_UNIQUE` ON `permission` (`permission_id` ASC);
@@ -135,6 +140,54 @@ CREATE INDEX `role_id_fk_idx` ON `role_permission` (`role_id_fk` ASC);
 
 SHOW WARNINGS;
 CREATE INDEX `permission_id_fk_idx` ON `role_permission` (`permission_id_fk` ASC);
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `group`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `group` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `group` (
+  `group_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`group_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin
+COMMENT = 'contain all groups for users';
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `user_group`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_group` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `user_group` (
+  `user_group_id` INT NOT NULL AUTO_INCREMENT,
+  `group_id_fk` INT NOT NULL,
+  `user_id_fk` INT NOT NULL,
+  PRIMARY KEY (`user_group_id`),
+  CONSTRAINT `group_id_fk`
+    FOREIGN KEY (`group_id_fk`)
+    REFERENCES `group` (`group_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `user_group_id_fk`
+    FOREIGN KEY (`user_id_fk`)
+    REFERENCES `user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `group_id_fk_idx` ON `user_group` (`group_id_fk` ASC);
+
+SHOW WARNINGS;
+CREATE INDEX `user_group_id_fk_idx` ON `user_group` (`user_id_fk` ASC);
 
 SHOW WARNINGS;
 
