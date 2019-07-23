@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`role_id`))
 ENGINE = InnoDB
 COMMENT = 'The role table contain all roles of the System (Rolle | funktion)';
@@ -45,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `country_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `abbreviations` VARCHAR(15) NULL COMMENT 'Länderabkurzungen (DE, FR)',
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`country_id`))
 ENGINE = InnoDB;
 
@@ -61,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `state` (
   `name` VARCHAR(45) NULL,
   `substate_name` VARCHAR(45) NULL,
   `country_id_fk` INT NOT NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`state_id`),
   CONSTRAINT `country_id_fk`
     FOREIGN KEY (`country_id_fk`)
@@ -87,6 +90,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `postcode` VARCHAR(45) NULL,
   `number` VARCHAR(45) NULL,
   `state_id_fk` INT NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`address_id`),
   CONSTRAINT `state_id_fk`
     FOREIGN KEY (`state_id_fk`)
@@ -113,6 +117,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `address_id_fk` INT NULL,
   `password` VARCHAR(100) NOT NULL,
   `birthday` DATE NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
+  `foto` BLOB NULL,
   PRIMARY KEY (`user_id`),
   CONSTRAINT `address_id_fk`
     FOREIGN KEY (`address_id_fk`)
@@ -142,6 +148,7 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `permission_id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`permission_id`))
 ENGINE = InnoDB
 COMMENT = 'is used for give a user  permission (Erlaubnis / Berechtigung / Rights )';
@@ -228,6 +235,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `group` (
   `group_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
   PRIMARY KEY (`group_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -266,6 +274,48 @@ SHOW WARNINGS;
 CREATE INDEX `user_group_id_fk_idx` ON `user_group` (`user_id_fk` ASC);
 
 SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `login`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `login` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `login` (
+  `login_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id_fk` INT NOT NULL,
+  `last_login` DATETIME NULL,
+  `mistrial` INT NULL DEFAULT 0 COMMENT 'Fehlversuche',
+  `old_password` VARCHAR(100) NULL,
+  `status` VARCHAR(1) NULL DEFAULT '1',
+  PRIMARY KEY (`login_id`),
+  CONSTRAINT `login_user_id_fk`
+    FOREIGN KEY (`user_id_fk`)
+    REFERENCES `user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+CREATE INDEX `login_user_id_fk_idx` ON `login` (`user_id_fk` ASC);
+
+SHOW WARNINGS;
+USE `bytmasoft`;
+
+DELIMITER $$
+
+USE `bytmasoft`$$
+DROP TRIGGER IF EXISTS `user_AFTER_INSERT` $$
+SHOW WARNINGS$$
+USE `bytmasoft`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `bytmasoft`.`user_AFTER_INSERT` AFTER INSERT ON `user` FOR EACH ROW
+BEGIN
+  insert into login(user_id_fk) values (new.user_id);
+END$$
+
+SHOW WARNINGS$$
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
