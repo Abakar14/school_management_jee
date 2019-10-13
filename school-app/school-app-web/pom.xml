@@ -20,7 +20,7 @@
 		<jsf.version>2.2.10</jsf.version>
 		<primefaces.version>6.0</primefaces.version>
 		<bootstrap.version>1.0.10</bootstrap.version>
-		<fileupload.version>1.3.2</fileupload.version>
+		<fileupload.version>1.3.3</fileupload.version>
 		<spring.version>4.3.7.RELEASE</spring.version>
 
 	</properties>
